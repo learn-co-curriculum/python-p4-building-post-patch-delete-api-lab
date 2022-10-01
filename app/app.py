@@ -8,15 +8,15 @@ from models import db, Bakery, BakedGood
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///db/app.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-app.config['JSONIFY_PRETTYPRINT_REGULAR'] = True
+app.json.compact = False
 
 migrate = Migrate(app, db)
 
 db.init_app(app)
 
 @app.route('/')
-def index():
-    return '<h1>Bakery GET/POST/PATCH/DELETE API</h1>'
+def home():
+    return '<h1>Bakery GET-POST-PATCH-DELETE API</h1>'
 
 @app.route('/bakeries')
 def bakeries():
@@ -155,4 +155,4 @@ def most_expensive_baked_good():
     return response
 
 if __name__ == '__main__':
-    app.run()
+    app.run(port=5555)
