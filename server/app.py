@@ -25,10 +25,9 @@ def bakeries():
     bakeries_serialized = [bakery.to_dict() for bakery in bakeries]
 
     response = make_response(
-        jsonify(bakeries_serialized),
+        bakeries_serialized,
         200
     )
-    response.headers['Content-Type'] = 'application/json'
     return response
 
 @app.route('/bakeries/<int:id>')
@@ -38,10 +37,9 @@ def bakery_by_id(id):
     bakery_serialized = bakery.to_dict()
 
     response = make_response(
-        jsonify(bakery_serialized),
+        bakery_serialized,
         200
     )
-    response.headers['Content-Type'] = 'application/json'
     return response
 
 @app.route('/baked_goods/by_price')
@@ -52,10 +50,9 @@ def baked_goods_by_price():
     ]
     
     response = make_response(
-        jsonify(baked_goods_by_price_serialized),
+        baked_goods_by_price_serialized,
         200
     )
-    response.headers['Content-Type'] = 'application/json'
     return response
 
 @app.route('/baked_goods/most_expensive')
@@ -64,11 +61,10 @@ def most_expensive_baked_good():
     most_expensive_serialized = most_expensive.to_dict()
 
     response = make_response(
-        jsonify(most_expensive_serialized),
+        most_expensive_serialized,
         200
     )
-    response.headers['Content-Type'] = 'application/json'
     return response
 
 if __name__ == '__main__':
-    app.run(port=5555)
+    app.run(port=5555, debug=True)
