@@ -29,7 +29,7 @@
 This is a **test-driven lab**. Run `pipenv install` to create your virtual
 environment and `pipenv shell` to enter the virtual environment. Then run
 `pytest -x` to run your tests. Use these instructions and `pytest`'s error
-messages to complete your work in the `app/` folder. Make sure to test your
+messages to complete your work in the `server/` folder. Make sure to test your
 routes in Postman as you progress.
 
 In this application, we'll be working on a familiar JSON API to get a list of
@@ -40,12 +40,12 @@ of what the ERD for these tables looks like:
 ![Bakeries ERD](https://curriculum-content.s3.amazonaws.com/phase-3/sinatra-with-active-record-get-lab/bakeries-baked_goods-erd.png)
 
 You can pick up where we left off by entering the following commands in the
-`app/` directory:
+`server/` directory:
 
 ```console
 $ flask db upgrade
 $ python seed.py
-$ flask run
+$ python app.py
 ```
 
 - Define a `POST` block inside of a `/baked_goods` route that creates a new
@@ -90,5 +90,4 @@ https://curriculum-content.s3.amazonaws.com/python/building-ppd-api-lab-3.png
 - [POST - Mozilla](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods/POST)
 - [PATCH - Mozilla](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods/PATCH)
 - [DELETE - Mozilla](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods/DELETE)
-- [flask.json.jsonify Example Code - Full Stack Python](https://www.fullstackpython.com/flask-json-jsonify-examples.html)
 - [SQLAlchemy-serializer - PyPI](https://pypi.org/project/SQLAlchemy-serializer/)
