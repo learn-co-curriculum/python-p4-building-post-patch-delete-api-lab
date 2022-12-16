@@ -16,8 +16,9 @@ class TestApp:
         with app.app_context():
 
             af = BakedGood.query.filter_by(name="Apple Fritter").first()
-            db.session.delete(af)
-            db.session.commit()
+            if af:
+                db.session.delete(af)
+                db.session.commit()
 
             response = app.test_client().post(
                 '/baked_goods',
@@ -28,9 +29,11 @@ class TestApp:
                 }
             )
 
-            assert(response.status_code == 201)
-            assert(response.content_type == 'application/json')
-            assert(af.id)
+            af = BakedGood.query.filter_by(name="Apple Fritter").first()
+
+            assert response.status_code == 201
+            assert response.content_type == 'application/json'
+            assert af.id
 
     def test_updates_bakeries(self):
         '''can PATCH bakeries through "bakeries/<int:id>" route.'''
