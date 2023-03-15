@@ -52,4 +52,4 @@ jspm_packages
 
 # *.db
 # */*.db
-app/migrations/versions/*.py
+# app/migrations/versions/*.py
