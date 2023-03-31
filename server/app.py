@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-from flask import Flask, make_response, jsonify
+from flask import Flask, request, make_response, jsonify
 from flask_migrate import Migrate
 
 from models import db, Bakery, BakedGood
